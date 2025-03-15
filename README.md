@@ -1,2 +1,3 @@
 # Ripeness-Detection-of-Fruits
-Automated Ripeness Detection of Fruits using Deep Learning
+## Introduction
+This project focuses on developing an automated system for accurately detecting the ripeness level of various fruits using deep learning and computer vision techniques. To ensure the best quality and reduce the food waste, it is crucial for both consumers and suppliers to correctly identify the ripeness of fruits. This system will assist grocery stores, suppliers and end consumers by providing accurate ripeness classifications, ensuring that the fruits sold are fresh and of the best quality. This project will utilize a dataset of fruit images labeled by ripeness stage (e.g. underripe, ripe and overripe) to train a Convolutional Neural Network (CNN) for classification.
