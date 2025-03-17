@@ -16,7 +16,7 @@ class Database:
             )
         ''')
         # Insert a sample user (username: user, password: pass)
-        cursor.execute("INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)", ('user', 'pass'))
+        cursor.execute("INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)", ('test_user', '123456'))
         conn.commit()
         conn.close()
 

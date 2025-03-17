@@ -3,20 +3,22 @@ from PyQt6.QtWidgets import QFileDialog, QMessageBox
 from PyQt6.QtGui import QPixmap
 import random
 
+
 class MainScreen(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainScreen, self).__init__()
-        uic.loadUi('ui/main.ui', self)
-        self.upload_button.clicked.connect(self.upload_image)
-        self.classify_button.clicked.connect(self.classify_image)
+        uic.loadUi('ui/mainwindow.ui', self)
+        self.btn_upload.clicked.connect(self.upload_image)
+        self.btn_classify.clicked.connect(self.classify_image)
         self.image_path = ""
 
     def upload_image(self):
-        options = QFileDialog.Options()
-        self.image_path, _ = QFileDialog.getOpenFileName(self, "Select Image", "", "Images (*.png *.xpm *.jpg *.jpeg);;All Files (*)", options=options)
+        self.image_path, _ = QFileDialog.getOpenFileName(self, "Select Image", "", "Images (*.png *.jpg *.jpeg);;All Files (*)")
         if self.image_path:
             pixmap = QPixmap(self.image_path)
-            self.image_label.setPixmap(pixmap.scaled(self.image_label.size(), aspectRatioMode=True))
+            print(self.lbl_image.size())
+            scaled_pixmap = pixmap.scaled(self.lbl_image.size())
+            self.lbl_image.setPixmap(scaled_pixmap)
 
     def classify_image(self):
         if not self.image_path:
@@ -33,5 +35,6 @@ class MainScreen(QtWidgets.QMainWindow):
         else:
             color = "yellow"
         
-        self.classification_label.setText(classification)
-        self.classification_label.setStyleSheet(f"color: {color};")
+        self.lbl_result.setText(classification)
+        self.lbl_result.setStyleSheet(f"color: {color}; border: 2px solid {color}")
+
